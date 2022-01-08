@@ -381,7 +381,7 @@ EOF
     echo "K510='${K510}'" >>${op_release} 2>/dev/null
 
     # Add firmware version information to the terminal page
-    # if [ -f etc/banner ]; then
+    #if [ -f etc/banner ]; then
     #    op_version=$(echo $(ls lib/modules/ 2>/dev/null))
     #    op_packaged_date=$(date +%Y-%m-%d)
     #    echo " Install: OpenWrt → System → Amlogic Service → Install" >>etc/banner
@@ -390,10 +390,17 @@ EOF
     #    echo " OpenWrt Kernel: ${op_version}" >>etc/banner
     #    echo " Packaged Date: ${op_packaged_date}" >>etc/banner
     #    echo " -------------------------------------------------------" >>etc/banner
-    # fi
+    #fi
 
     # Add some package and script connection
     ln -sf /usr/sbin/openwrt-backup usr/sbin/flippy 2>/dev/null
+
+    # Add wireless master mode
+    # wireless_mac80211="lib/netifd/wireless/mac80211.sh"
+    # [ -f "${wireless_mac80211}" ] && {
+    #     sed -i "s|ip link |ipconfig link |g" ${wireless_mac80211}
+    #     sed -i "s|iw |ipconfig |g" ${wireless_mac80211}
+    # }
 
     # Get random macaddr
     mac_hexchars="0123456789ABCDEF"
@@ -507,4 +514,350 @@ copy2image() {
         die "mount ${loop}p2 failed!"
     fi
 
-    cp -rf
+    cp -rf ${boot}/* ${bootfs}
+    cp -rf ${root}/* ${rootfs}
+    sync
+
+    cd ${make_path}
+    umount -f ${bootfs} 2>/dev/null
+    umount -f ${rootfs} 2>/dev/null
+    losetup -d ${loop} 2>/dev/null
+    sync
+
+    cd ${out_path} && gzip *.img && sync && cd ${make_path}
+}
+
+get_firmwares() {
+    firmwares=()
+    i=0
+    IFS=$'\n'
+
+    [ -d "${openwrt_path}" ] && {
+        for x in $(ls ${openwrt_path}); do
+            firmwares[i++]=${x}
+        done
+    }
+}
+
+get_kernels() {
+    build_kernel=()
+    i=0
+    IFS=$'\n'
+
+    local kernel_root="${kernel_path}"
+    [ -d ${kernel_root} ] && {
+        work=$(pwd)
+        cd ${kernel_root}
+        for x in $(ls ./); do
+            [ "$(ls ${x}/*.tar.gz -l 2>/dev/null | grep "^-" | wc -l)" -ge "3" ] && build_kernel[i++]=${x}
+        done
+        cd ${work}
+    }
+}
+
+show_kernels() {
+    if [ ${#build_kernel[*]} = 0 ]; then
+        die "No kernel files in [ ${kernel_path} ] directory!"
+    else
+        show_list "${build_kernel[*]}" "kernel"
+    fi
+}
+
+show_list() {
+    echo " ${2}: "
+    i=0
+    for x in ${1}; do
+        echo " ($((++i))) ${x}"
+    done
+}
+
+choose_firmware() {
+    show_list "${firmwares[*]}" "firmware"
+    choose_files ${#firmwares[*]} "firmware"
+    firmware=${firmwares[opt]}
+    tag ${firmware} && echo
+}
+
+choose_kernel() {
+    show_kernels
+    choose_files ${#build_kernel[*]} "kernel"
+    kernel=${build_kernel[opt]}
+    tag ${kernel} && echo
+}
+
+choose_files() {
+    local len=${1}
+
+    if [ "${len}" = 1 ]; then
+        opt=0
+    else
+        i=0
+        while true; do
+            echo && read -p " select ${2} above, and press Enter to select the first one: " opt
+            [ ${opt} ] || opt=1
+            if [[ "${opt}" -ge "1" && "${opt}" -le "${len}" ]]; then
+                ((opt--))
+                break
+            else
+                ((i++ >= 2)) && exit 1
+                error "Wrong type, try again!"
+                sleep 1s
+            fi
+        done
+    fi
+}
+
+choose_build() {
+    i=1
+    for var in ${build_openwrt[*]}; do
+        echo " (${i}) ${var}"
+        let i++
+    done
+    echo && read -p " Please select the Amlogic SoC: " pause
+    case $pause in
+    11 | s922x) build="s922x" ;;
+    12 | s922x-n2) build="s922x-n2" ;;
+    13 | s905x3) build="s905x3" ;;
+    14 | s905x2) build="s905x2" ;;
+    15 | s912) build="s912" ;;
+    16 | s912-t95z) build="s912-t95z" ;;
+    17 | s905) build="s905" ;;
+    18 | s905d) build="s905d" ;;
+    19 | s905d-ki) build="s905d-ki" ;;
+    20 | s905x) build="s905x" ;;
+    21 | s905w) build="s905w" ;;
+    *) die "Have no this Amlogic SoC" ;;
+    esac
+    tag ${build}
+}
+
+set_rootsize() {
+    i=0
+    rootsize=
+
+    while true; do
+        echo && read -p " input the rootfs partition size(mb) numerical value, defaults to 1024, do not less than 256
+ if you don't know what this means, press Enter to keep default: " rootsize
+        [ ${rootsize} ] || rootsize=${ROOT_MB}
+        if [[ "${rootsize}" -ge "256" ]]; then
+            tag ${rootsize} && echo
+            break
+        else
+            ((i++ >= 2)) && exit 1
+            error "Invalid numeric input, try again!\n"
+            sleep 1s
+        fi
+    done
+}
+
+usage() {
+    cat <<EOF
+Usage:
+    make [option]
+
+Options:
+
+    -d, --default          The kernel version is "latest", and the rootfs partition size is "1024m"
+
+    -b, --build=BUILD      Specify multiple cores, use "_" to connect
+      , -b all             Compile all types of openwrt
+      , -b s905x3          Specify a single openwrt for compilation
+      , -b s905x3_s905d    Specify multiple openwrt, use "_" to connect
+
+    -k, --kernelversion    Set the kernel version, which must be in the "kernel" directory
+      , -k all             Build all the kernel version
+      , -k latest          Build the latest kernel version
+      , -k 5.4.170         Specify a single kernel for compilation
+      , -k 5.4.170_5.10.90 Specify multiple cores, use "_" to connect
+
+    -a, --autokernel       Whether to auto update to the latest kernel of the same series
+      , -a true            Auto update to the latest kernel
+      , -a false           Do not upgrade, compile the specified kernel
+
+    -v, --versionbranch    Set the kernel version branch, the default is stable
+      , -v stable          Use stable branch
+      , -v dev             Use dev branch
+
+    -s, --size             Set the rootfs partition size, do not less than 256m
+      , -s 1024            Set the rootfs partition size is 1024MB
+
+    -h, --help             Display this help
+
+    -c, --clean            Clean up the output and temporary directories
+
+    --kernel               Show all kernel version in "kernel" directory
+
+EOF
+}
+
+[ $(id -u) = 0 ] || die "please run this script as root: [ sudo ./make ]"
+echo -e "Welcome to use the OpenWrt packaging tool! \n"
+echo -e "Server space usage before starting to compile: \n$(df -hT ${PWD}) \n"
+
+cleanup
+get_firmwares
+get_kernels
+
+while [ "${1}" ]; do
+    case "${1}" in
+    -d | --default)
+        : ${rootsize:=${ROOT_MB}}
+        : ${firmware:="${firmwares[0]}"}
+        : ${build:="all"}
+        : ${kernel:="${build_kernel[-1]}"}
+        : ${auto_kernel:=${auto_kernel}}
+        : ${version_branch:=${version_branch}}
+        ;;
+    -b | --build)
+        build=${2}
+        if [ "${build}" = "all" ]; then
+            shift
+        elif [ -n "${build}" ]; then
+            unset build_openwrt
+            oldIFS=$IFS
+            IFS=_
+            build_openwrt=(${build})
+            IFS=$oldIFS
+            unset build
+            : ${build:="all"}
+            shift
+        else
+            die "Invalid -b parameter [ ${2} ]!"
+        fi
+        ;;
+    -k | --kernelversion)
+        kernel=${2}
+        if [ "${kernel}" = "all" ]; then
+            shift
+        elif [ "${kernel}" = "latest" ]; then
+            kernel="${build_kernel[-1]}"
+            shift
+        elif [ -n "${kernel}" ]; then
+            oldIFS=$IFS
+            IFS=_
+            build_kernel=(${kernel})
+            IFS=$oldIFS
+            unset kernel
+            : ${kernel:="all"}
+            shift
+        else
+            die "Invalid -k parameter [ ${2} ]!"
+        fi
+        ;;
+    -a | --autokernel)
+        if [ -n "${2}" ]; then
+            auto_kernel="${2}"
+            shift
+        else
+            die "Invalid -a parameter [ ${2} ]!"
+        fi
+        ;;
+    -v | --versionbranch)
+        if [ -n "${2}" ]; then
+            version_branch="${2}"
+            shift
+        else
+            die "Invalid -v parameter [ ${2} ]!"
+        fi
+        ;;
+    -s | --size)
+        if [[ -n "${2}" && "${2}" -ge "512" ]]; then
+            rootsize="${2}"
+            shift
+        else
+            die "Invalid -s parameter [ ${2} ]!"
+        fi
+        ;;
+    -h | --help)
+        usage && exit 0
+        ;;
+    -c | --clean)
+        cleanup
+        rm -rf ${out_path} 2>/dev/null
+        echo "Clean up ok!" && exit 0
+        ;;
+    --kernel)
+        show_kernels && exit 0
+        ;;
+    *)
+        die "Invalid option [ ${1} ]!"
+        ;;
+    esac
+    shift
+done
+
+if [ ${#firmwares[*]} = 0 ]; then
+    die "No the [ openwrt-armvirt-64-default-rootfs.tar.gz ] file in [ ${openwrt_path} ] directory!"
+fi
+
+if [ ${#build_kernel[*]} = 0 ]; then
+    die "No this kernel files in [ ${kernel_path} ] directory!"
+fi
+
+[ ${firmware} ] && echo " firmware   ==>   ${firmware}"
+[ ${rootsize} ] && echo " rootsize   ==>   ${rootsize}"
+[ ${make_path} ] && echo " make_path   ==>   ${make_path}"
+
+[ ${firmware} ] || [ ${kernel} ] || [ ${rootsize} ] && echo
+
+[ ${firmware} ] || choose_firmware
+[ ${kernel} ] || choose_kernel
+[ ${build} ] || choose_build
+[ ${rootsize} ] || set_rootsize
+
+[ ${kernel} != "all" ] && unset build_kernel && build_kernel=(${kernel})
+[ ${build} != "all" ] && unset build_openwrt && build_openwrt=(${build})
+
+# Set whether to replace the kernel
+[ "${auto_kernel}" == "true" ] && download_kernel
+
+echo -e "OpenWrt SoC List: [ $(echo ${build_openwrt[*]} | tr "\n" " ") ]"
+echo -e "Kernel List: [ $(echo ${build_kernel[*]} | tr "\n" " ") ]"
+echo -e "Ready, start packaging... \n"
+
+# Start loop compilation
+k=1
+for b in ${build_openwrt[*]}; do
+
+    i=1
+    for x in ${build_kernel[*]}; do
+        {
+            echo -n "(${k}.${i}) Start packaging OpenWrt [ ${b} - ${x} ]. "
+
+            now_remaining_space=$(df -hT ${PWD} | grep '/dev/' | awk '{print $5}' | sed 's/.$//' | awk -F "." '{print $1}')
+            if [[ "${now_remaining_space}" -le "2" ]]; then
+                echo "Remaining space is less than 2G, exit this packaging. \n"
+                break 2
+            else
+                echo "Remaining space is ${now_remaining_space}G."
+            fi
+
+            kernel=${x}
+            build=${b}
+            process " (1/6) extract armvirt files."
+            extract_openwrt
+            process " (2/6) extract armbian files."
+            extract_armbian ${b}
+            process " (3/6) refactor related files."
+            refactor_files ${b} ${x}
+            process " (4/6) make openwrt image."
+            make_image ${b}
+            process " (5/6) copy files to image."
+            copy2image ${b}
+            process " (6/6) cleanup tmp files."
+            cleanup
+
+            echo -e "(${k}.${i}) OpenWrt packaged successfully. \n"
+
+            let i++
+        }
+    done
+
+    let k++
+done
+
+cp -f ${openwrt_path}/*.tar.gz ${out_path} 2>/dev/null && sync
+echo -e "Server space usage after compilation: \n$(df -hT ${PWD}) \n"
+
+wait
+chmod -R 777 ${out_path}
