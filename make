@@ -322,19 +322,6 @@ EOF
     [ -f etc/modules.d/usb-net-rtl8150 ] || echo "rtl8150" >etc/modules.d/usb-net-rtl8150
     [ -f etc/modules.d/usb-net-rtl8152 ] || echo "r8152" >etc/modules.d/usb-net-rtl8152
     [ -f etc/modules.d/usb-net-asix-ax88179 ] || echo "ax88179_178a" >etc/modules.d/usb-net-asix-ax88179
-
-    # Add wireless master mode
-    netifd_file=${configfiles_path}/patches/wireless/drivers/netifd
-    if [ -d "${netifd_file}" ];then
-        cp -f ${netifd_file}/mac80211.sh lib/netifd/wireless/mac80211.sh && chmod +x lib/netifd/wireless/mac80211.sh >/dev/null 2>&1
-        sync
-    fi
-
-    wifi_file=${configfiles_path}/patches/wireless/drivers/wifi
-    if [ -d "${wifi_file}" ];then
-        cp -f ${wifi_file}/mac80211.sh lib/wifi/mac80211.sh && chmod +x lib/wifi/mac80211.sh >/dev/null 2>&1
-        sync
-    fi
     
     # Add cpustat
     DISTRIB_SOURCECODE="$(cat etc/openwrt_release | grep "DISTRIB_SOURCECODE=" | awk -F "'" '{print $2}')"
