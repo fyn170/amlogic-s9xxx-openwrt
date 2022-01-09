@@ -16,6 +16,7 @@ sed -i "s/root::0:0:99999:7:::/root:"'$'"1"'$'"pSFNodTy"'$'"ej92Jju6QPD9AIAuelgn
 
 # change ssid
 sed -i "s/OpenWrt/LYNX/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i "s/iw /ipconfig /g" package/kernel/mac80211/files/lib/netifd/wireless/mac80211.sh
 
 # change hostname
 sed -i "s/ImmortalWrt/LYNX/g" package/base-files/files/bin/config_generate
