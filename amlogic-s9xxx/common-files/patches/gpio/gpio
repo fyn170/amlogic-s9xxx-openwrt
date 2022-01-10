@@ -35,13 +35,13 @@ function dual_general() {
   esac
 }
 
-function lan() {
+function power() {
   pin_on="425"
   pin_off="426"
   dual_general "${1}" "${pin_on}" "${pin_off}"
 }
 
-function power() {
+function lan() {
   pin_on="510"
   pin_off="506"
   dual_general "${1}" "${pin_on}" "${pin_off}"
