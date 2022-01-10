@@ -352,7 +352,9 @@ EOF
     if [ -d "${gpio_file}" ]; then
         cp -f ${gpio_file}/gpio usr/bin/gpio && chmod +x usr/bin/gpio >/dev/null 2>&1
         cp -f ${gpio_file}/getgpio usr/bin/getgpio && chmod +x usr/bin/getgpio >/dev/null 2>&1
+        cp -f ${gpio_file}/getgpio usr/bin/gpiotemp && chmod +x usr/bin/gpiotemp >/dev/null 2>&1
         sed -i "/exit/i\sleep 20 && /usr/bin/getgpio -r" etc/rc.local >/dev/null 2>&1
+        sed -i "/exit/i\/usr/bin/gpiotemp" etc/rc.local >/dev/null 2>&1
     fi
     
     # Add speedtest
