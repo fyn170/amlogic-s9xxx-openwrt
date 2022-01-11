@@ -15,7 +15,7 @@
 
 > Network
 1. `Red Blink = Lost Connection`
-2. `Orange Blink = Smooth Connection`
+2. `Green Blink = Smooth Connection`
 
 ### Install to EMMC
 > `Login to OpenWrt → System → Amlogic Service → Install OpenWrt`
