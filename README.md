@@ -10,12 +10,12 @@
 
 ### LED
 > Temperature
-1. `Green = Temp. ↓55 ℃`
-2. `Orange = Temp. ↑55 ℃`
+1. `Green → Temp. ↓55 ℃`
+2. `Orange → Temp. ↑55 ℃`
 
 > Network
-1. `Red Blink = Lost Connection`
-2. `Orange Blink = Smooth Connection`
+1. `Red Blink → Lost Connection`
+2. `Orange Blink → Smooth Connection`
 
 ### Install to EMMC
 > `Login to OpenWrt → System → Amlogic Service → Install OpenWrt`
