@@ -3,9 +3,7 @@
      xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
      width="32" height="32">
-     <center>
   <text font-size="16" x="10" y="20">
     <tspan fill="green">◖</tspan><tspan fill="orange">◗</tspan>    
   </text>
-          </center>
 </svg>
