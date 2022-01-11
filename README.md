@@ -9,11 +9,11 @@
 > 5. Default WIFI password: `none`
 
 ### LED
-> LED 1
+> Temperature
 1. `Green = Temp. ↓55 ℃`
 2. `Orange = Temp. ↑55 ℃`
 
-> LED 2
+> Network
 1. `Red Blink = Lost Connection`
 2. `Orange Blink = Smooth Connection`
 
