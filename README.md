@@ -9,26 +9,24 @@
 > 5. Default WIFI password: `none`
 
 ### LED
-> Temperature
-1. `Green → Temp. ↓55 ℃`
-2. `Orange → Temp. ↑55 ℃`
+> LED 1
+1. `Green = Temp. ↓55 ℃`
+2. `Orange = Temp. ↑55 ℃`
 
-> Network
-1. `Red Blink → Lost Connection`
-2. `Orange Blink → Smooth Connection`
+> LED 2
+1. `Red Blink = Lost Connection`
+2. `Orange Blink = Smooth Connection`
 
 ### Install to EMMC
 > `Login to OpenWrt → System → Amlogic Service → Install OpenWrt`
 
 ### Overviews
-<p align="center">
-<img src="https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.13.31.png" width="80%" height="80%" alt="lynxnexy">
-<img src="https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.13.58.png" width="80%" height="80%" alt="lynxnexy">
-<img src="https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.14.41.png" width="80%" height="80%" alt="lynxnexy">
-<img src="https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.15.27.png" width="80%" height="80%" alt="lynxnexy">
-<img src="https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.18.14.png" width="80%" height="80%" alt="lynxnexy">
-<img src="https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.19.21.png" width="80%" height="80%" alt="lynxnexy">
-</p>
+![Overviews](https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.13.31.png)
+![Overviews](https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.13.58.png)
+![Overviews](https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.14.41.png)
+![Overviews](https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.15.27.png)
+![Overviews](https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.18.14.png)
+![Overviews](https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.19.21.png)
 
 ## Acknowledgments
 
