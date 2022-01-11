@@ -66,17 +66,17 @@
 # svn co https://github.com/Lienol/openwrt-package/trunk/lienol/luci-theme-bootstrap-mod package/luci-theme-bootstrap-mod
 #
 # ------------------------------- Lienol ends -------------------------------
-svn co https://github.com/r3yr3/helmiwrt-packages/trunk/luci-app-libernet-plus package/luci-app-libernet-plus
-svn co https://github.com/r3yr3/helmiwrt-packages/trunk/luci-app-shutdown package/luci-app-shutdown
-svn co https://github.com/r3yr3/helmiwrt-packages/trunk/luci-app-xderm-bin package/luci-app-xderm-bin
-svn co https://github.com/r3yr3/helmiwrt-packages/trunk/luci-app-xderm-limit package/luci-app-xderm-limit
-svn co https://github.com/r3yr3/helmiwrt-packages/trunk/luci-app-tinyfilemanager package/luci-app-tinyfilemanager
-svn co https://github.com/r3yr3/helmiwrt-packages/trunk/badvpn package/badvpn
-svn co https://github.com/r3yr3/helmiwrt-packages/trunk/corkscrew package/corkscrew
+# svn co https://github.com/r3yr3/helmiwrt-packages/trunk/luci-app-libernet-plus package/luci-app-libernet-plus
+# svn co https://github.com/r3yr3/helmiwrt-packages/trunk/luci-app-shutdown package/luci-app-shutdown
+# svn co https://github.com/r3yr3/helmiwrt-packages/trunk/luci-app-xderm-bin package/luci-app-xderm-bin
+# svn co https://github.com/r3yr3/helmiwrt-packages/trunk/luci-app-xderm-limit package/luci-app-xderm-limit
+# svn co https://github.com/r3yr3/helmiwrt-packages/trunk/luci-app-tinyfilemanager package/luci-app-tinyfilemanager
+# svn co https://github.com/r3yr3/helmiwrt-packages/trunk/badvpn package/badvpn
+# svn co https://github.com/r3yr3/helmiwrt-packages/trunk/corkscrew package/corkscrew
 
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/adbyby package/adbyby
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-adbyby-plus package/luci-app-adbyby-plus
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ramfree package/luci-app-ramfree
+# svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/adbyby package/adbyby
+# svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-adbyby-plus package/luci-app-adbyby-plus
+# svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ramfree package/luci-app-ramfree
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-zerotier package/luci-app-zerotier
 svn co https://github.com/brvphoenix/luci-app-wrtbwmon/trunk/luci-app-wrtbwmon package/luci-app-wrtbwmon
 svn co https://github.com/brvphoenix/wrtbwmon/trunk/wrtbwmon package/wrtbwmon
