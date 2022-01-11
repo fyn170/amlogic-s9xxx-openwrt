@@ -20,12 +20,12 @@
 
 ### Overviews
 <p align="center">
-<img src="https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.13.31.png" width="50%" height="50%" alt="lynxnexy">
-<img src="https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.13.58.png" width="50%" height="50%" alt="lynxnexy">
-<img src="https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.14.41.png" width="50%" height="50%" alt="lynxnexy">
-<img src="https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.15.27.png" width="50%" height="50%" alt="lynxnexy">
-<img src="https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.18.14.png" width="50%" height="50%" alt="lynxnexy">
-<img src="https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.19.21.png" width="50%" height="50%" alt="lynxnexy">
+<img src="https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.13.31.png" width="80%" height="80%" alt="lynxnexy">
+<img src="https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.13.58.png" width="80%" height="80%" alt="lynxnexy">
+<img src="https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.14.41.png" width="80%" height="80%" alt="lynxnexy">
+<img src="https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.15.27.png" width="80%" height="80%" alt="lynxnexy">
+<img src="https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.18.14.png" width="80%" height="80%" alt="lynxnexy">
+<img src="https://github.com/lynxnexy/immortalwrt/blob/main/pages/Screen%20Shot%202022-01-11%20at%2018.19.21.png" width="80%" height="80%" alt="lynxnexy">
 </p>
 
 ## Acknowledgments
