@@ -11,8 +11,8 @@ SERVICE_NAME="Internet Indicator"
 
 function loop() {
   while true; do
-    gpio -lan warn
-    if curl -X "HEAD" --connect-timeout 3 -so /dev/null "http://bing.com"; then
+    gpio -lan dis
+    if curl -X "HEAD" --connect-timeout 3 -so /dev/null "http://www.gstatic.com/generate_204"; then
       gpio -lan on
     else
       gpio -lan off
