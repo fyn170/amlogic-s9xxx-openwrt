@@ -7,16 +7,18 @@
 > 3. Default password: `passwd`
 > 4. Default WIFI name: `LYNX`
 > 5. Default WIFI password: `none`
-> 6. Install to EMMC: `Login to OpenWrt → System → Amlogic Service → Install OpenWrt`
 
 ### LED
-> LED 1
+> Temperature
 1. `Green = Temp. ↓55 ℃`
 2. `Orange = Temp. ↑55 ℃`
 
-> LED 2
+> Network
 1. `Red Blink = Lost Connection`
 2. `Orange Blink = Smooth Connection`
+
+### Install to EMMC
+> `Login to OpenWrt → System → Amlogic Service → Install OpenWrt`
 
 ### Overviews
 <p align="center">
