@@ -1,14 +1,14 @@
 # immortalwrt-21.02
 ### ImmortalWrt-21.02 for HG680P - B860H
 
-### Firmware information 
+### Firmware Information 
 > 1. Default IP: `192.168.1.1`
 > 2. Default username: `root`
 > 3. Default password: `passwd`
 > 4. Default WIFI name: `LYNX`
 > 5. Default WIFI password: `none`
 
-### LED
+### LED Notification
 > Temperature
 1. `Green = Temp. ↓55 ℃`
 2. `Orange = Temp. ↑55 ℃`
