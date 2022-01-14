@@ -11,10 +11,17 @@
 # sed -i 's/192.168.1.1/192.168.31.4/g' package/base-files/files/bin/config_generate
 
 # Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-material）
-# sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-material/g' ./feeds/luci/collections/luci/Makefile
 
 # Add the default password for the 'root' user（Change the empty password to 'password'）
 # sed -i 's/root::0:0:99999:7:::/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/g' package/base-files/files/etc/shadow
+
+# change ssid
+sed -i "s/OpenWrt/REYRE-STBx/g" package/kernel/mac80211/files/lib/wifi/mac80211.sh
+sed -i "s/iw /ipconfig /g" package/kernel/mac80211/files/lib/netifd/wireless/mac80211.sh
+
+# change hostname
+sed -i "s/OpenWrt/REYRE-STB/g" package/base-files/files/bin/config_generate
 
 # Correct translation for Transmission
 # sed -i 's/发送/Transmission/g' feeds/luci/applications/luci-app-transmission/po/zh_Hans/transmission.po
@@ -66,16 +73,15 @@
 # svn co https://github.com/Lienol/openwrt-package/trunk/lienol/luci-theme-bootstrap-mod package/luci-theme-bootstrap-mod
 #
 # ------------------------------- Lienol ends -------------------------------
-svn co https://github.com/r3yr3/helmiwrt-packages/trunk/luci-app-libernet-plus package/luci-app-libernet-plus
-svn co https://github.com/r3yr3/helmiwrt-packages/trunk/luci-app-shutdown package/luci-app-shutdown
-svn co https://github.com/r3yr3/helmiwrt-packages/trunk/luci-app-xderm-bin package/luci-app-xderm-bin
-svn co https://github.com/r3yr3/helmiwrt-packages/trunk/luci-app-xderm-limit package/luci-app-xderm-limit
-svn co https://github.com/r3yr3/helmiwrt-packages/trunk/luci-app-tinyfilemanager package/luci-app-tinyfilemanager
 svn co https://github.com/r3yr3/helmiwrt-packages/trunk/badvpn package/badvpn
 svn co https://github.com/r3yr3/helmiwrt-packages/trunk/corkscrew package/corkscrew
 
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/adbyby package/adbyby
-svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-adbyby-plus package/luci-app-adbyby-plus
+# Add p7zip
+svn co https://github.com/hubutui/p7zip-lede/trunk package/lean/p7zip
+
+# Add luci-app-3ginfo-lite
+svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk package/luci-app-3ginfo-lite
+
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ramfree package/luci-app-ramfree
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-zerotier package/luci-app-zerotier
 svn co https://github.com/brvphoenix/luci-app-wrtbwmon/trunk/luci-app-wrtbwmon package/luci-app-wrtbwmon
