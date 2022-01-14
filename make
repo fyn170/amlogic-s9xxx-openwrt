@@ -463,7 +463,7 @@ make_image() {
     cd ${make_path}
     build_op=${1}
     #build_image_file="${out_path}/openwrt_${build_op}_k${kernel}_$(date +"%Y.%m.%d.%H%M").img"
-    build_image_file="${out_path}/OpenWrt-21.02-k${kernel}-$(date +"%Y.%m.%d.%H%M").img"
+    build_image_file="${out_path}/OpenWrt-21.02-ReY-k${kernel}-$(date +"%Y.%m.%d.%H%M").img"
     rm -f ${build_image_file}
     sync
 
