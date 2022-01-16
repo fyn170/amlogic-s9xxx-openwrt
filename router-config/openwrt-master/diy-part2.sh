@@ -82,6 +82,9 @@ svn co https://github.com/hubutui/p7zip-lede/trunk package/lean/p7zip
 # Add luci-app-3ginfo-lite
 svn co https://github.com/4IceG/luci-app-3ginfo-lite/trunk package/luci-app-3ginfo-lite
 
+# Intel XMM 7650 LTE-A Pro modem.
+svn co https://github.com/koshev-msk/xmm-modem /package/xmm-modem
+
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ramfree package/luci-app-ramfree
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-zerotier package/luci-app-zerotier
 svn co https://github.com/brvphoenix/luci-app-wrtbwmon/trunk/luci-app-wrtbwmon package/luci-app-wrtbwmon
