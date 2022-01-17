@@ -88,6 +88,21 @@ svn co https://github.com/koshev-msk/xmm-modem/trunk package/xmm-modem
 # A Qos luci app filter device by MAC address
 svn co https://github.com/WROIATE/luci-app-mqos/trunk package/luci-app-mqos
 
+# luci-app-modeminfo
+svn co https://github.com/koshev-msk/luci-app-modeminfo/trunk package/luci-app-modeminfo
+
+# luci-app-smstools3 
+svn co https://github.com/koshev-msk/luci-app-smstools3/trunk package/luci-app-smstools3
+
+# luci-app-mqos
+svn co https://github.com/WROIATE/luci-app-mqos/trunk package/luci-app-mqos
+
+# luci-app-kodexplorer
+svn co https://github.com/jlzsss/luci-app-kodexplorer/trunk package/luci-app-kodexplorer
+
+# luci-app-atinout-mod
+svn co https://github.com/4IceG/luci-app-atinout-mod/trunk package/luci-app-atinout-mod
+
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ramfree package/luci-app-ramfree
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-zerotier package/luci-app-zerotier
 svn co https://github.com/brvphoenix/luci-app-wrtbwmon/trunk/luci-app-wrtbwmon package/luci-app-wrtbwmon
