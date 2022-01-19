@@ -48,9 +48,6 @@ svn co https://github.com/WROIATE/luci-app-mqos/trunk package/luci-app-mqos
 # luci-app-atinout-mod
 svn co https://github.com/4IceG/luci-app-atinout-mod/trunk package/luci-app-atinout-mod
 
-# luci-app-qosv4
-svn co https://github.com/iwrt/luci-app-qosv4/trunk package/luci-app-qosv4
-
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-ramfree package/luci-app-ramfree
 svn co https://github.com/coolsnowwolf/lede/trunk/package/lean/luci-app-zerotier package/luci-app-zerotier
 svn co https://github.com/brvphoenix/luci-app-wrtbwmon/trunk/luci-app-wrtbwmon package/luci-app-wrtbwmon
