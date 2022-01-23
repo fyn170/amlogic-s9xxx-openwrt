@@ -19,8 +19,8 @@ kernel_path=${amlogic_path}/amlogic-kernel
 armbian_path=${amlogic_path}/amlogic-armbian
 uboot_path=${amlogic_path}/amlogic-u-boot
 configfiles_path=${amlogic_path}/common-files
-kernel_library="https://github.com/ophub/kernel/tree/main/pub"
-#kernel_library="https://github.com/ophub/kernel/trunk/pub"
+#kernel_library="https://github.com/ophub/kernel/tree/main/pub"
+kernel_library="https://github.com/rayhanbone/kernel/tree/main/pub"
 version_branch="stable"
 auto_kernel="true"
 #===== Do not modify the following parameter settings, End =======
@@ -667,8 +667,8 @@ Options:
     -k, --kernelversion    Set the kernel version, which must be in the "kernel" directory
       , -k all             Build all the kernel version
       , -k latest          Build the latest kernel version
-      , -k 5.4.170         Specify a single kernel for compilation
-      , -k 5.4.170_5.10.90 Specify multiple cores, use "_" to connect
+      , -k 5.4.128         Specify a single kernel for compilation
+      , -k 5.4.128_5.10.90 Specify multiple cores, use "_" to connect
 
     -a, --autokernel       Whether to auto update to the latest kernel of the same series
       , -a true            Auto update to the latest kernel
