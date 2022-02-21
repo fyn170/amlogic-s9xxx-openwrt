@@ -19,8 +19,8 @@ kernel_path=${amlogic_path}/amlogic-kernel
 armbian_path=${amlogic_path}/amlogic-armbian
 uboot_path=${amlogic_path}/amlogic-u-boot
 configfiles_path=${amlogic_path}/common-files
-kernel_library="https://github.com/ophub/kernel/tree/main/pub"
-#kernel_library="https://github.com/rayhanbone/kernel/tree/main/pub"
+#kernel_library="https://github.com/ophub/kernel/tree/main/pub"
+kernel_library="https://github.com/rayhanbone/kernel/tree/main/pub"
 version_branch="stable"
 auto_kernel="true"
 #===== Do not modify the following parameter settings, End =======
