@@ -14,7 +14,8 @@ on:
     #- cron: '0 17 * * 0'
 
 env:
-  REPO_URL: https://github.com/ofmodemsandmen/RooterSource
+  REPO_URL: https://github.com/ofmodemsandmen/ROOterSource2102
+  REPO_BRANCH: ROOterSource2102
   FEEDS_CONF: router-config/openwrt-master/feeds.conf.default
   CONFIG_FILE: router-config/openwrt-master/.config
   DIY_P1_SH: router-config/openwrt-master/diy-part1.sh
