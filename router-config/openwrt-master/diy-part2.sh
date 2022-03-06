@@ -17,15 +17,15 @@ sed -i "s/iw /ipconfig /g" package/kernel/mac80211/files/lib/netifd/wireless/mac
 sed -i "s/OpenWrt/REYRE-STB/g" package/base-files/files/bin/config_generate
 
 # ------------------------------- Main source ends -------------------------------
-svn co https://github.com/xiaorouji/openwrt-passwall packages/brook
-svn co https://github.com/xiaorouji/openwrt-passwall packages/chinadns-ng
-svn co https://github.com/xiaorouji/openwrt-passwall packages/dns2socks
-svn co https://github.com/xiaorouji/openwrt-passwall packages/hysteria
-svn co https://github.com/xiaorouji/openwrt-passwall packages/ipt2socks
-svn co https://github.com/xiaorouji/openwrt-passwall packages/microsocks
-svn co https://github.com/xiaorouji/openwrt-passwall packages/naiveproxy
-svn co https://github.com/xiaorouji/openwrt-passwall packages/pdnsd-alt
-svn co https://github.com/xiaorouji/openwrt-passwall packages/shadowsocks-rust
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/brook
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/chinadns-ng
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/dns2socks
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/hysteria
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/ipt2socks
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/microsocks
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/naiveproxy
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/pdnsd-alt
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/shadowsocks-rust
 svn co https://github.com/xiaorouji/openwrt-passwall packages/shadowsocksr-libev
 svn co https://github.com/xiaorouji/openwrt-passwall packages/simple-obfs
 svn co https://github.com/xiaorouji/openwrt-passwall packages/ssocks
