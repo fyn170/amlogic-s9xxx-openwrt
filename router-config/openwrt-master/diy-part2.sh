@@ -18,12 +18,12 @@ sed -i "s/OpenWrt/REYRE-STB/g" package/base-files/files/bin/config_generate
 
 # ------------------------------- Main source ends -------------------------------
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passwall
-svn co https://github.com/xiaorouji/openwrt-passwall/tree packages/brook
-svn co https://github.com/xiaorouji/openwrt-passwall/tree packages/chinadns-ng
-svn co https://github.com/xiaorouji/openwrt-passwall/tree packages/dns2socks
-svn co https://github.com/xiaorouji/openwrt-passwall/tree packages/hysteria
-svn co https://github.com/xiaorouji/openwrt-passwall/tree packages/ipt2socks
-svn co https://github.com/xiaorouji/openwrt-passwall/tree packages/microsocks
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/brook
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/chinadns-ng
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/dns2socks
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/hysteria
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/ipt2socks
+svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/microsocks
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/naiveproxy
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/pdnsd-alt
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/shadowsocks-rust
