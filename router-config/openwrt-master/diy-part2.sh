@@ -17,6 +17,10 @@ sed -i "s/iw /ipconfig /g" package/kernel/mac80211/files/lib/netifd/wireless/mac
 sed -i "s/OpenWrt/REYRE-STB/g" package/base-files/files/bin/config_generate
 
 svn co https://github.com/ROOterDairyman/Goldenorb/trunk package/ext-rooter-basic
+svn co https://github.com/ROOterDairyman/Goldenorb/trunk/rmbim package/rmbim
+svn co https://github.com/ROOterDairyman/Goldenorb/trunk/rqmi package/rqmi
+svn co https://github.com/ROOterDairyman/Goldenorb/trunk/ext-samba package/ext-samba
+svn co https://github.com/ROOterDairyman/Goldenorb/trunk/luci-app-rooterddns package/luci-app-rooterddns
 # ------------------------------- Main source ends -------------------------------
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passwall
 svn co https://github.com/tianiue/luci-app-passwall/trunk package/luci-app-passwall
