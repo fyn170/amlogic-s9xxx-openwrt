@@ -17,7 +17,7 @@ sed -i "s/iw /ipconfig /g" package/kernel/mac80211/files/lib/netifd/wireless/mac
 sed -i "s/OpenWrt/REYRE-STB/g" package/base-files/files/bin/config_generate
 
 #svn co https://github.com/ROOterDairyman/Goldenorb/trunk package/ext-rooter-basic
-svn co https://github.com/ofmodemsandmen/ROOterSource2102/trunk/package/rooter/0drivers/rmbim package/rmbim
+svn co https://github.com/rayhanbone/ROOterSource2102/trunk/package/rooter/ext-rooter-basic package/rmbim
 rm -rf package/rmbim/.svn 2>/dev/null
 svn co https://github.com/ofmodemsandmen/ROOterSource2102/trunk/package/rooter/0drivers/rqmi package/rqmi
 svn co https://github.com/ofmodemsandmen/ROOterSource2102/trunk/package/rooter/0basicsupport/ext-buttons package/ext-buttons
