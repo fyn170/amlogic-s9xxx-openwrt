@@ -18,11 +18,10 @@ sed -i "s/OpenWrt/REYRE-STB/g" package/base-files/files/bin/config_generate
 
 svn co https://github.com/rayhanbone/ROOterSource2102/trunk/package/rooter/ext-rooter-basic package/ext-rooter-basic
 #rm -rf package/rmbim/.svn 2>/dev/null
-svn co https://github.com/rayhanbone/ROOterSource2102/trunk/package/rooter/0drivers/rqmi package/rqmi
-svn co https://github.com/rayhanbone/ROOterSource2102/trunk/package/rooter/0basicsupport/ext-buttons package/ext-buttons
-svn co https://github.com/rayhanbone/ROOterSource2102/trunk/package/rooter/0basicsupport/ext-sms package/ext-sms
-svn co https://github.com/rayhanbone/ROOterSource2102/trunk/package/rooter-builds/0protocols/luci-proto-3x package/luci-proto-3x
-svn co https://github.com/rayhanbone/ROOterSource2102/trunk/package/rooter/ext-rooter-basic package/ext-rooter-basic
+#svn co https://github.com/rayhanbone/ROOterSource2102/trunk/package/rooter/0drivers/rqmi package/rqmi
+#svn co https://github.com/rayhanbone/ROOterSource2102/trunk/package/rooter/0basicsupport/ext-buttons package/ext-buttons
+#svn co https://github.com/rayhanbone/ROOterSource2102/trunk/package/rooter/0basicsupport/ext-sms package/ext-sms
+#svn co https://github.com/rayhanbone/ROOterSource2102/trunk/package/rooter-builds/0protocols/luci-proto-3x package/luci-proto-3x
 # ------------------------------- Main source ends -------------------------------
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passwall
 svn co https://github.com/tianiue/luci-app-passwall/trunk package/luci-app-passwall
