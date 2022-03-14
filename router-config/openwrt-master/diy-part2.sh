@@ -16,37 +16,11 @@ sed -i "s/iw /ipconfig /g" package/kernel/mac80211/files/lib/netifd/wireless/mac
 # change hostname
 sed -i "s/OpenWrt/REYRE-STB/g" package/base-files/files/bin/config_generate
 
-svn co https://github.com/rayhanbone/ROOterSource2102/trunk/package/rooter/ext-rooter-basic package/ext-rooter-basic
-#rm -rf package/rmbim/.svn 2>/dev/null
-#svn co https://github.com/rayhanbone/ROOterSource2102/trunk/package/rooter/0drivers/rqmi package/rqmi
-#svn co https://github.com/rayhanbone/ROOterSource2102/trunk/package/rooter/0basicsupport/ext-buttons package/ext-buttons
-#svn co https://github.com/rayhanbone/ROOterSource2102/trunk/package/rooter/0basicsupport/ext-sms package/ext-sms
-#svn co https://github.com/rayhanbone/ROOterSource2102/trunk/package/rooter-builds/0protocols/luci-proto-3x package/luci-proto-3x
 # ------------------------------- Main source ends -------------------------------
 svn co https://github.com/xiaorouji/openwrt-passwall/trunk package/openwrt-passwall
 svn co https://github.com/tianiue/luci-app-passwall/trunk package/luci-app-passwall
 # ------------------------------- Main source ends -------------------------------
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/brook
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/chinadns-ng
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/dns2socks
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/hysteria
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/ipt2socks
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/microsocks
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/naiveproxy
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/pdnsd-alt
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/shadowsocks-rust
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/shadowsocksr-libev
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/simple-obfs
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/ssocks
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/tcping
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/trojan-go
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/trojan-plus
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/trojan
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/v2ray-core
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/v2ray-geodata
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/v2ray-plugin
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/xray-core
-#svn co https://github.com/xiaorouji/openwrt-passwall/trunk packages/xray-plugin
+svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-passwall2 package/luci-app-passwall2
 # ------------------------------- Main source ends -------------------------------
 
 svn co https://github.com/r3yr3/helmiwrt-packages/trunk/badvpn package/badvpn
